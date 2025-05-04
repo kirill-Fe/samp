@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Лучшие сервера 2013 | SAMP, CRMP, GTA 5 RP</title>
+    <title>Лучшие сервера 2025 | SAMP, CRMP, GTA 5 RP</title>
     <style>
         body {
             font-family: 'Trebuchet MS', Arial, sans-serif;
@@ -101,6 +101,7 @@
         .ad img {
             max-width: 100%;
             height: auto;
+            border-radius: 5px;
         }
         
         /* Мобильная реклама (скрыта на ПК) */
@@ -146,19 +147,38 @@
             border-radius: 5px;
             font-weight: bold;
             margin-top: 10px;
+            transition: background 0.3s;
         }
         
         .join-btn:hover {
             background: #e55c00;
         }
         
-        .copy-text {
+        /* Стили для копирования текста */
+        .copy-ip {
+            display: inline-flex;
+            align-items: center;
+            background: #f0f0f0;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
             cursor: pointer;
-            color: blue;
-            text-decoration: underline;
+            transition: all 0.3s;
         }
-        .copy-text:hover {
-            color: red;
+        
+        .copy-ip:hover {
+            background: #e0e0e0;
+        }
+        
+        .copy-ip::after {
+            content: "📋";
+            margin-left: 5px;
+            font-size: 14px;
+        }
+        
+        .copy-ip.copied::after {
+            content: "✓";
+            color: green;
         }
         
         /* Футер */
@@ -218,6 +238,19 @@
             0% { transform: translate(0, 0); }
             100% { transform: translate(-100%, 0); }
         }
+        
+        /* Уведомление о копировании */
+        .copy-notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            z-index: 1000;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -237,21 +270,21 @@
     </div>
     
     <div class="marquee">
-        <span>🔥РЕКЛАМА НА ЗАКАЗ <a href="https://t.me/Kirill_Florik">Kirill</a>🔥</span>
+        <span>🔥РЕКЛАМА НА ЗАКАЗ <a href="https://t.me/Kirill_Florik" style="color: #ff6600; text-decoration: none;">Kirill</a>🔥</span>
     </div>
     
     <div class="container">
         <div class="main-content">
             <div class="mobile-ad">
                 <h3>Реклама</h3>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvp_kx-rK66IQawGHR6jtIEvUJTpuZ1EPmVw&s" alt="Мобильная реклама">
-                <p>Заходи на сервер в samp и получи 50кк при регистрации <br> и 5к доната админка и лидерка без обзвона и бесплатно <br> стань лидером своей любимой организации <br> IP <span class="copy-text" onclick="copyToClipboard(this)">194.93.2.226:2145 </span></p>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvp_kx-rK66IQawGHR6jtIEvUJTpuZ1EPmVw&s" alt="Мобильная реклама" style="max-width: 100%;">
+                <p>Заходи на сервер в samp и получи 50кк при регистрации <br> и 5к доната админка и лидерка без обзвона и бесплатно <br> стань лидером своей любимой организации <br> IP: <span class="copy-ip" data-ip="194.93.2.226:2145">194.93.2.226:2145</span></p>
             </div>
             
             <div id="samp" class="server">
                 <h2>San Andreas Multiplayer (SAMP)</h2>
                 <div class="server-info">
-                    <p><strong>IP:</strong> samp.bestserver.com:7777</p>
+                    <p><strong>IP:</strong> <span class="copy-ip" data-ip="samp.bestserver.com:7777">samp.bestserver.com:7777</span></p>
                     <p><strong>Онлайн:</strong> 500+ игроков</p>
                     <p><strong>Рейтинг:</strong> <span class="server-rating">★★★★★</span> (4.9/5)</p>
                     <p>Лучший RP сервер в SAMP с уникальной экономикой и системой фракций. Более 1000 машин и 500 домов.</p>
@@ -262,7 +295,7 @@
             <div id="arizona" class="server">
                 <h2>Arizona RP</h2>
                 <div class="server-info">
-                    <p><strong>IP:</strong> arizona-rp.com</p>
+                    <p><strong>IP:</strong> <span class="copy-ip" data-ip="arizona-rp.com">arizona-rp.com</span></p>
                     <p><strong>Онлайн:</strong> 300+ игроков</p>
                     <p><strong>Рейтинг:</strong> <span class="server-rating">★★★★☆</span> (4.7/5)</p>
                     <p>Уникальный криминальный RP сервер с системой наркоторговли и бандитскими разборками.</p>
@@ -273,7 +306,7 @@
             <div id="rodina" class="server">
                 <h2>Родина RP</h2>
                 <div class="server-info">
-                    <p><strong>IP:</strong> rodina-rp.ru</p>
+                    <p><strong>IP:</strong> <span class="copy-ip" data-ip="rodina-rp.ru">rodina-rp.ru</span></p>
                     <p><strong>Онлайн:</strong> 400+ игроков</p>
                     <p><strong>Рейтинг:</strong> <span class="server-rating">★★★★★</span> (4.8/5)</p>
                     <p>Русскоязычный RP сервер с реалистичной экономикой и политической системой.</p>
@@ -284,7 +317,7 @@
             <div id="gta5" class="server">
                 <h2>GTA 5 Role Play</h2>
                 <div class="server-info">
-                    <p><strong>IP:</strong> gtarp-best.com</p>
+                    <p><strong>IP:</strong> <span class="copy-ip" data-ip="gtarp-best.com">gtarp-best.com</span></p>
                     <p><strong>Онлайн:</strong> 200+ игроков</p>
                     <p><strong>Рейтинг:</strong> <span class="server-rating">★★★★☆</span> (4.6/5)</p>
                     <p>Самый популярный RP сервер в GTA 5 с модами и кастомными возможностями.</p>
@@ -311,27 +344,32 @@
         <div class="sidebar">
             <div class="ad">
                 <h3>Реклама</h3>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6MMSl6uYW4ZFVYB7CbiKsxU503dkHUt6WxA&s" alt="Реклама 1">
-                <p>Уникальные читы для black Russia!<a href="https://t.me/liri_soft">ТГК с читами без вирусов</a></p>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6MMSl6uYW4ZFVYB7CbiKsxU503dkHUt6WxA&s" alt="Реклама 1" style="max-width: 100%;">
+                <p>Уникальные читы для black Russia!<br><a href="https://t.me/liri_soft" style="color: #3a7bd5; text-decoration: none;">ТГК с читами без вирусов</a></p>
             </div>
             
             <div class="ad">
                 <h3>Реклама</h3>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvp_kx-rK66IQawGHR6jtIEvUJTpuZ1EPmVw&s" alt="Реклама 2">
-                <p>Заходи на сервер в samp и получи 50кк при регистрации <br> и 5к доната админка и лидерка без обзвона и бесплатно <br> стань лидером своей любимой организации <br> IP <span class="copy-text" onclick="copyToClipboard(this)">194.93.2.226:2145 </span></p>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvp_kx-rK66IQawGHR6jtIEvUJTpuZ1EPmVw&s" alt="Реклама 2" style="max-width: 100%;">
+                <p>Заходи на сервер в samp и получи 50кк при регистрации <br> и 5к доната админка и лидерка без обзвона и бесплатно <br> стань лидером своей любимой организации <br> IP: <span class="copy-ip" data-ip="194.93.2.226:2145">194.93.2.226:2145</span></p>
             </div>
             
             <div class="ad">
                 <h3>Реклама</h3>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvUgk63eizhRMM1luWK7SLr3qrpeZhkCCeAg&s" alt="Реклама 3">
-                <p><a href="https://files.adv-rp.com/static/resources/sampadvancerp.exe">Скачать GTA San Andreas бесплатно!</a></p>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvUgk63eizhRMM1luWK7SLr3qrpeZhkCCeAg&s" alt="Реклама 3" style="max-width: 100%;">
+                <p><a href="https://files.adv-rp.com/static/resources/sampadvancerp.exe" style="color: #3a7bd5; text-decoration: none;">Скачать GTA San Andreas бесплатно!</a></p>
             </div>
         </div>
     </div>
     
     <div class="footer">
-        <p>© 2025 Лучшие RP сервера. Все права защищены.</p>
-        <p>Сайт создан на движке "Народный сайт 1.0"</p>
+        <p>© 2025 <a href="https://kirill-fe.GitHub.io/projects">florik-projects</a>. Все права защищены.</p>
+        <p>Сайт создан на движке "Народный сайт 1.1"</p>
+    </div>
+    
+    <!-- Уведомление о копировании -->
+    <div class="copy-notification" id="copyNotification">
+        IP скопирован в буфер обмена!
     </div>
     
     <script>
@@ -352,24 +390,34 @@
         }
         
         setInterval(updateOnline, 5000);
+        
+        // Функция копирования IP
+        document.querySelectorAll('.copy-ip').forEach(element => {
+            element.addEventListener('click', async function() {
+                const ip = this.getAttribute('data-ip');
+                
+                try {
+                    await navigator.clipboard.writeText(ip);
+                    
+                    // Показываем уведомление
+                    const notification = document.getElementById('copyNotification');
+                    notification.style.display = 'block';
+                    setTimeout(() => {
+                        notification.style.display = 'none';
+                    }, 2000);
+                    
+                    // Меняем иконку на "галочку"
+                    this.classList.add('copied');
+                    setTimeout(() => {
+                        this.classList.remove('copied');
+                    }, 2000);
+                    
+                } catch (err) {
+                    console.error('Ошибка при копировании: ', err);
+                    alert('Не удалось скопировать IP. Попробуйте вручную.');
+                }
+            });
+        });
     </script>
-    <script>
-    function copyToClipboard(element) {
-        // Создаем временный textarea
-        const temp = document.createElement("textarea");
-        temp.value = element.textContent;
-        document.body.appendChild(temp);
-        
-        // Выделяем и копируем текст
-        temp.select();
-        document.execCommand("copy");
-        
-        // Удаляем временный элемент
-        document.body.removeChild(temp);
-        
-        // Показываем уведомление
-        alert("Текст скопирован: " + temp.value);
-    }
-</script>
 </body>
 </html>
