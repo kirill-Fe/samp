@@ -38,6 +38,9 @@
         .nav {
             background: #333;
             padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         
         .nav ul {
@@ -69,12 +72,11 @@
         .container {
             width: 80%;
             margin: 20px auto;
-            overflow: hidden;
+            display: flex;
         }
         
         .main-content {
-            float: left;
-            width: 70%;
+            flex: 3;
             background: white;
             padding: 20px;
             border-radius: 5px;
@@ -83,25 +85,36 @@
         
         /* Боковая панель с рекламой (для ПК) */
         .sidebar {
-            float: right;
-            width: 25%;
-            background: white;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            flex: 1;
+            margin-left: 20px;
+            position: sticky;
+            top: 80px;
+            height: fit-content;
         }
         
         .ad {
             margin-bottom: 20px;
-            text-align: center;
-            border: 1px dashed #ccc;
-            padding: 10px;
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .ad:hover {
+            transform: translateY(-5px);
+        }
+        
+        .ad h3 {
+            color: #ff6600;
+            margin-top: 0;
         }
         
         .ad img {
             max-width: 100%;
             height: auto;
             border-radius: 5px;
+            margin-bottom: 10px;
         }
         
         /* Мобильная реклама (скрыта на ПК) */
@@ -183,34 +196,37 @@
         
         /* Футер */
         .footer {
-            clear: both;
             background: #333;
             color: white;
             text-align: center;
             padding: 20px 0;
             margin-top: 20px;
         }
-
-     .footer a {
-    color: white;
-}
         
-.footer a:hover {
-    color: yellow;
-}        
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            color: yellow;
+        }
+        
         /* Адаптивность */
         @media screen and (max-width: 768px) {
             .container {
                 width: 95%;
+                flex-direction: column;
             }
             
             .main-content, .sidebar {
-                float: none;
                 width: auto;
+                margin-left: 0;
             }
             
             .sidebar {
-                display: none;
+                position: static;
+                margin-top: 20px;
             }
             
             .mobile-ad {
@@ -352,26 +368,37 @@
             <div class="ad">
                 <h3>Реклама</h3>
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6MMSl6uYW4ZFVYB7CbiKsxU503dkHUt6WxA&s" alt="Реклама 1" style="max-width: 100%;">
-                <p>Уникальные читы для black Russia!<br><a href="https://t.me/liri_soft" style="color: #3a7bd5; text-decoration: none;">ТГК с читами без вирусов</a></p>
+                <p><strong>Уникальные читы для Black Russia</strong></p>
+                <p>Без вирусов и троянов</p>
+                <p><a href="https://t.me/liri_soft" style="color: #3a7bd5; text-decoration: none;">Telegram канал</a></p>
             </div>
             
             <div class="ad">
                 <h3>Реклама</h3>
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvp_kx-rK66IQawGHR6jtIEvUJTpuZ1EPmVw&s" alt="Реклама 2" style="max-width: 100%;">
-                <p>Заходи на сервер в samp и получи 50кк при регистрации <br> и 5к доната админка и лидерка без обзвона и бесплатно <br> стань лидером своей любимой организации <br> IP: <span class="copy-ip" data-ip="194.93.2.226:2145">194.93.2.226:2145</span></p>
+                <p><strong>Эксклюзивный SAMP сервер</strong></p>
+                <p>При регистрации получи:</p>
+                <ul style="text-align: left; padding-left: 20px;">
+                    <li>50,000,000$ стартового капитала</li>
+                    <li>Админ-пакет на 5,000$</li>
+                    <li>Возможность стать лидером организации</li>
+                </ul>
+                <p>IP: <span class="copy-ip" data-ip="194.93.2.226:2145">194.93.2.226:2145</span></p>
             </div>
             
             <div class="ad">
                 <h3>Реклама</h3>
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvUgk63eizhRMM1luWK7SLr3qrpeZhkCCeAg&s" alt="Реклама 3" style="max-width: 100%;">
-                <p><a href="https://files.adv-rp.com/static/resources/sampadvancerp.exe" style="color: #3a7bd5; text-decoration: none;">Скачать GTA San Andreas бесплатно!</a></p>
+                <p><strong>Скачать GTA San Andreas от advance rp</strong></p>
+                <p>Полная версия бесплатно</p>
+                <a href="https://files.adv-rp.com/static/resources/sampadvancerp.exe" class="join-btn" style="display: inline-block; margin-top: 10px;">Скачать сейчас</a>
             </div>
         </div>
     </div>
     
     <div class="footer">
-        <p>© 2025 <a href="https://kirill-fe.GitHub.io/projects">florik-projects</a>. Все права защищены.</p>
-        <p>Сайт создан на движке "Народный сайт 1.1"</p>
+        <p>© 2025 <a href="https://kirill-fe.github.io/projects">florik-projects</a></p>
+        <p>Сайт сделан для выбора самп игры</p>
     </div>
     
     <!-- Уведомление о копировании -->
@@ -389,10 +416,14 @@
         
         // Рандомный онлайн серверов
         function updateOnline() {
-            document.querySelectorAll('.server-info strong:contains("Онлайн:")').forEach(el => {
-                const baseOnline = parseInt(el.nextSibling.textContent);
-                const randomChange = Math.floor(Math.random() * 20) - 10;
-                el.nextSibling.textContent = ' ' + Math.max(50, baseOnline + randomChange) + '+ игроков';
+            const onlineElements = document.querySelectorAll('.server-info');
+            onlineElements.forEach(el => {
+                const onlineText = el.querySelector('strong:contains("Онлайн:")');
+                if (onlineText) {
+                    const baseOnline = parseInt(onlineText.nextSibling.textContent);
+                    const randomChange = Math.floor(Math.random() * 20) - 10;
+                    onlineText.nextSibling.textContent = ' ' + Math.max(50, baseOnline + randomChange) + '+ игроков';
+                }
             });
         }
         
