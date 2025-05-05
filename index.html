@@ -12,6 +12,9 @@
             margin: 0;
             padding: 0;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         
         /* Шапка в стиле 2013 */
@@ -69,11 +72,19 @@
             background: #ff6600;
         }
         
-        /* Основной контент */
-        .container {
+        /* Основной контейнер */
+        .main-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Контейнер контента */
+        .content-wrapper {
+            display: flex;
+            flex: 1;
             width: 80%;
             margin: 20px auto;
-            display: flex;
         }
         
         .main-content {
@@ -84,7 +95,7 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
         
-        /* Боковая панель с рекламой (для ПК) */
+        /* Боковая панель с рекламой */
         .sidebar {
             flex: 1;
             margin-left: 20px;
@@ -201,7 +212,7 @@
             color: white;
             text-align: center;
             padding: 20px 0;
-            margin-top: 20px;
+            margin-top: auto;
         }
         
         .footer a {
@@ -215,7 +226,7 @@
         
         /* Адаптивность */
         @media screen and (max-width: 768px) {
-            .container {
+            .content-wrapper {
                 width: 95%;
                 flex-direction: column;
             }
@@ -278,138 +289,140 @@
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Лучшие RP сервера 2025</h1>
-        <p>Топовые проекты SAMP, CRMP, GTA 5 Role Play</p>
-    </div>
-    
-    <div class="nav">
-        <ul>
-            <li><a href="#samp">SAMP</a></li>
-            <li><a href="#arizona">Arizona RP</a></li>
-            <li><a href="#rodina">Родина RP</a></li>
-            <li><a href="#gta5">GTA 5 RP</a></li>
-            <li><a href="#gtao">GTA Online</a></li>
-            <li><a href="#advance">Advance</a></li>
-        </ul>
-    </div>
-    
-    <div class="marquee">
-        <span>🔥РЕКЛАМА НА ЗАКАЗ <a href="https://t.me/Kirill_Florik" style="color: #ff6600; text-decoration: none;">Kirill</a>🔥</span>
-    </div>
-    
-    <div class="container">
-        <div class="main-content">
-            <div class="mobile-ad">
-                <h3>Реклама</h3>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvp_kx-rK66IQawGHR6jtIEvUJTpuZ1EPmVw&s" alt="Мобильная реклама" style="max-width: 100%;">
-                <p>Заходи на сервер в samp и получи 50кк при регистрации <br> и 5к доната админка и лидерка без обзвона и бесплатно <br> стань лидером своей любимой организации <br> IP: <span class="copy-ip" data-ip="194.93.2.226:2145">194.93.2.226:2145</span></p>
-            </div>
-            
-            <div id="samp" class="server">
-                <h2>San Andreas Multiplayer (SAMP)</h2>
-                <div class="server-info">
-                    <p><strong>IP:</strong> <span class="copy-ip" data-ip="samp.bestserver.com:7777">samp.bestserver.com:7777</span></p>
-                    <p><strong>Онлайн:</strong> 500+ игроков</p>
-                    <p><strong>Рейтинг:</strong> <span class="server-rating">★★★★★</span> (4.9/5)</p>
-                    <p>Лучший RP сервер в SAMP с уникальной экономикой и системой фракций. Более 1000 машин и 500 домов.</p>
+    <div class="main-wrapper">
+        <div class="header">
+            <h1>Лучшие RP сервера 2025</h1>
+            <p>Топовые проекты SAMP, CRMP, GTA 5 Role Play</p>
+        </div>
+        
+        <div class="nav">
+            <ul>
+                <li><a href="#samp">SAMP</a></li>
+                <li><a href="#arizona">Arizona RP</a></li>
+                <li><a href="#rodina">Родина RP</a></li>
+                <li><a href="#gta5">GTA 5 RP</a></li>
+                <li><a href="#gtao">GTA Online</a></li>
+                <li><a href="#advance">Advance</a></li>
+            </ul>
+        </div>
+        
+        <div class="marquee">
+            <span>🔥РЕКЛАМА НА ЗАКАЗ <a href="https://t.me/Kirill_Florik" style="color: #ff6600; text-decoration: none;">Kirill</a>🔥</span>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="main-content">
+                <div class="mobile-ad">
+                    <h3>Реклама</h3>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvp_kx-rK66IQawGHR6jtIEvUJTpuZ1EPmVw&s" alt="Мобильная реклама" style="max-width: 100%;">
+                    <p>Заходи на сервер в samp и получи 50кк при регистрации <br> и 5к доната админка и лидерка без обзвона и бесплатно <br> стань лидером своей любимой организации <br> IP: <span class="copy-ip" data-ip="194.93.2.226:2145">194.93.2.226:2145</span></p>
                 </div>
-                <a href="samp://samp.bestserver.com:7777" class="join-btn">Подключиться</a>
-            </div>
-            
-            <div id="arizona" class="server">
-                <h2>Arizona RP</h2>
-                <div class="server-info">
-                    <p><strong>IP:</strong> <span class="copy-ip" data-ip="arizona-rp.com">arizona-rp.com</span></p>
-                    <p><strong>Онлайн:</strong> 700+ игроков</p>
-                    <p><strong>Рейтинг:</strong> <span class="server-rating">★★★★☆</span> (4.7/5)</p>
-                    <p>Уникальный криминальный RP сервер с системой наркоторговли и бандитскими разборками.</p>
+                
+                <div id="samp" class="server">
+                    <h2>San Andreas Multiplayer (SAMP)</h2>
+                    <div class="server-info">
+                        <p><strong>IP:</strong> <span class="copy-ip" data-ip="samp.bestserver.com:7777">samp.bestserver.com:7777</span></p>
+                        <p><strong>Онлайн:</strong> 500+ игроков</p>
+                        <p><strong>Рейтинг:</strong> <span class="server-rating">★★★★★</span> (4.9/5)</p>
+                        <p>Лучший RP сервер в SAMP с уникальной экономикой и системой фракций. Более 1000 машин и 500 домов.</p>
+                    </div>
+                    <a href="samp://samp.bestserver.com:7777" class="join-btn">Подключиться</a>
                 </div>
-                <a href="https://arizona-rp.com/#how-to-play" class="join-btn">Скачать клиент</a>
-            </div>
-            
-            <div id="rodina" class="server">
-                <h2>Родина RP</h2>
-                <div class="server-info">
-                    <p><strong>IP:</strong> <span class="copy-ip" data-ip="rodina-rp.ru">rodina-rp.ru</span></p>
-                    <p><strong>Онлайн:</strong> 600+ игроков</p>
-                    <p><strong>Рейтинг:</strong> <span class="server-rating">★★★★★</span> (4.8/5)</p>
-                    <p>Русскоязычный RP сервер с реалистичной экономикой и политической системой.</p>
+                
+                <div id="arizona" class="server">
+                    <h2>Arizona RP</h2>
+                    <div class="server-info">
+                        <p><strong>IP:</strong> <span class="copy-ip" data-ip="arizona-rp.com">arizona-rp.com</span></p>
+                        <p><strong>Онлайн:</strong> 700+ игроков</p>
+                        <p><strong>Рейтинг:</strong> <span class="server-rating">★★★★☆</span> (4.7/5)</p>
+                        <p>Уникальный криминальный RP сервер с системой наркоторговли и бандитскими разборками.</p>
+                    </div>
+                    <a href="https://arizona-rp.com/#how-to-play" class="join-btn">Скачать клиент</a>
                 </div>
-                <a href="https://rodina-rp.com/#launcher" class="join-btn">Скачать</a>
-            </div>
-            
-            <div id="gta5" class="server">
-                <h2>GTA 5 Role Play</h2>
-                <div class="server-info">
-                    <p><strong>IP:</strong> <span class="copy-ip" data-ip="gtarp-best.com">gtarp-best.com</span></p>
-                    <p><strong>Онлайн:</strong> 200+ игроков</p>
-                    <p><strong>Рейтинг:</strong> <span class="server-rating">★★★★☆</span> (4.6/5)</p>
-                    <p>Самый популярный RP сервер в GTA 5 с модами и кастомными возможностями.</p>
+                
+                <div id="rodina" class="server">
+                    <h2>Родина RP</h2>
+                    <div class="server-info">
+                        <p><strong>IP:</strong> <span class="copy-ip" data-ip="rodina-rp.ru">rodina-rp.ru</span></p>
+                        <p><strong>Онлайн:</strong> 600+ игроков</p>
+                        <p><strong>Рейтинг:</strong> <span class="server-rating">★★★★★</span> (4.8/5)</p>
+                        <p>Русскоязычный RP сервер с реалистичной экономикой и политической системой.</p>
+                    </div>
+                    <a href="https://rodina-rp.com/#launcher" class="join-btn">Скачать</a>
                 </div>
-                <a href="https://gta5rp.com/download" class="join-btn">Скачать</a>
-            </div>
-            
-            <div id="gtao" class="server">
-                <h2>GTA Online</h2>
-                <div class="server-info">
-                    <p><strong>Платформа:</strong> PC, PS3, Xbox 360</p>
-                    <p><strong>Особенности:</strong> Хейты, рейды, бизнесы</p>
-                    <p><strong>Рейтинг:</strong> <span class="server-rating">★★★★★</span> (5.0/5)</p>
-                    <p>Официальный мультиплеер GTA 5 с возможностью создания собственного криминального бизнеса.</p>
+                
+                <div id="gta5" class="server">
+                    <h2>GTA 5 Role Play</h2>
+                    <div class="server-info">
+                        <p><strong>IP:</strong> <span class="copy-ip" data-ip="gtarp-best.com">gtarp-best.com</span></p>
+                        <p><strong>Онлайн:</strong> 200+ игроков</p>
+                        <p><strong>Рейтинг:</strong> <span class="server-rating">★★★★☆</span> (4.6/5)</p>
+                        <p>Самый популярный RP сервер в GTA 5 с модами и кастомными возможностями.</p>
+                    </div>
+                    <a href="https://gta5rp.com/download" class="join-btn">Скачать</a>
                 </div>
-                <a href="https://www.rockstargames.com/ru/gta-online" class="join-btn">Скачать</a>
-            </div>
-            
-            <div id="advance" class="server">
-                <h2>Advance rp</h2>
-                <div class="server-info">
-                    <p><strong>IP:</strong> <span class="copy-ip" data-ip="54.37.142.74:7777">54.37.142.74:7777</span></p>
-                    <p><strong>Онлайн:</strong> 300+ игроков</p>
-                    <p><strong>Рейтинг:</strong> <span class="server-rating">★★★★☆</span> (4.3/5)</p>
-                    <p>Старый самп на котором рп не сохронилось, но можно вспомнить старый самп.</p>
+                
+                <div id="gtao" class="server">
+                    <h2>GTA Online</h2>
+                    <div class="server-info">
+                        <p><strong>Платформа:</strong> PC, PS3, Xbox 360</p>
+                        <p><strong>Особенности:</strong> Хейты, рейды, бизнесы</p>
+                        <p><strong>Рейтинг:</strong> <span class="server-rating">★★★★★</span> (5.0/5)</p>
+                        <p>Официальный мультиплеер GTA 5 с возможностью создания собственного криминального бизнеса.</p>
+                    </div>
+                    <a href="https://www.rockstargames.com/ru/gta-online" class="join-btn">Скачать</a>
                 </div>
-                <a href= "https://forum.adv-rp.com/sampinstall/arp-launcher.exe" class="join-btn">Скачать</a>
+                
+                <div id="advance" class="server">
+                    <h2>Advance rp</h2>
+                    <div class="server-info">
+                        <p><strong>IP:</strong> <span class="copy-ip" data-ip="54.37.142.74:7777">54.37.142.74:7777</span></p>
+                        <p><strong>Онлайн:</strong> 300+ игроков</p>
+                        <p><strong>Рейтинг:</strong> <span class="server-rating">★★★★☆</span> (4.3/5)</p>
+                        <p>Старый самп на котором рп не сохронилось, но можно вспомнить старый самп.</p>
+                    </div>
+                    <a href="https://forum.adv-rp.com/sampinstall/arp-launcher.exe" class="join-btn">Скачать</a>
+                </div>
             </div>
             
-    
-        <div class="sidebar">
-            <div class="ad">
-                <h3>Реклама</h3>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6MMSl6uYW4ZFVYB7CbiKsxU503dkHUt6WxA&s" alt="Реклама 1" style="max-width: 100%;">
-                <p><strong>Уникальные читы для Black Russia</strong></p>
-                <p>Без вирусов и троянов</p>
-                <p><a href="https://t.me/liri_soft" style="color: #3a7bd5; text-decoration: none;">Telegram канал</a></p>
-            </div>
-            
-            <div class="ad">
-                <h3>Реклама</h3>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvp_kx-rK66IQawGHR6jtIEvUJTpuZ1EPmVw&s" alt="Реклама 2" style="max-width: 100%;">
-                <p><strong>Эксклюзивный SAMP сервер</strong></p>
-                <p>При регистрации получи:</p>
-                <ul style="text-align: left; padding-left: 20px;">
-                    <li>50,000,000$ стартового капитала</li>
-                    <li>Админка 5 лвл(свободных мест 6)</li>
-                    <li>Возможность стать лидером организации</li>
-                </ul>
-                <p>IP: <span class="copy-ip" data-ip="194.93.2.226:2145">194.93.2.226:2145</span></p>
-                <a href="https://t.me/Russia_RPG">ТГК</a>
-            </div>
-            
-            <div class="ad">
-                <h3>Реклама</h3>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvUgk63eizhRMM1luWK7SLr3qrpeZhkCCeAg&s" alt="Реклама 3" style="max-width: 100%;">
-                <p><strong>Скачать GTA San Andreas от advance rp(пк версию)</strong></p>
-                <p>Полная версия бесплатно</p>
-                <a href="https://files.adv-rp.com/static/resources/sampadvancerp.exe" class="join-btn" style="display: inline-block; margin-top: 10px;">Скачать сейчас</a>
-            </div>
-            
-            <div class="ad">
-                <h3>Реклама</h3>
-                <img src="https://play-lh.googleusercontent.com/S9iHZNrsP1od6ggCIGjQHV5Ex2bO20_jcDP-mfo6NtYB2MzAA3ANdQh8OQzp1tUGgfQ" alt="Реклама 3" style="max-width: 100%;">
-                <p><strong>Скачать GTA San Andreas (android version)</strong></p>
-                <p>две версии на выбор lite/full</p>
-                <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://play.google.com/store/apps/details%3Fid%3Dru.unisamp_mobile.launcher%26referrer%3Dutm_source%253Dgoogle%2526utm_medium%253Dorganic%2526utm_term%253Dsamp%2Blauncher%26pcampaignid%3DAPPU_1_5M8XaOW4B96D9u8PyJX6uAc&ved=2ahUKEwjluqq_1YqNAxXegf0HHciKHncQ5YQBegQIDBAC&usg=AOvVaw0nDyUbmD76Eq-R152Q54K2" class="join-btn" style="display: inline-block; margin-top: 10px;">Скачать сейчас</a>
+            <div class="sidebar">
+                <div class="ad">
+                    <h3>Реклама</h3>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6MMSl6uYW4ZFVYB7CbiKsxU503dkHUt6WxA&s" alt="Реклама 1" style="max-width: 100%;">
+                    <p><strong>Уникальные читы для Black Russia</strong></p>
+                    <p>Без вирусов и троянов</p>
+                    <p><a href="https://t.me/liri_soft" style="color: #3a7bd5; text-decoration: none;">Telegram канал</a></p>
+                </div>
+                
+                <div class="ad">
+                    <h3>Реклама</h3>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvp_kx-rK66IQawGHR6jtIEvUJTpuZ1EPmVw&s" alt="Реклама 2" style="max-width: 100%;">
+                    <p><strong>Эксклюзивный SAMP сервер</strong></p>
+                    <p>При регистрации получи:</p>
+                    <ul style="text-align: left; padding-left: 20px;">
+                        <li>50,000,000$ стартового капитала</li>
+                        <li>Админка 5 лвл(свободных мест 6)</li>
+                        <li>Возможность стать лидером организации</li>
+                    </ul>
+                    <p>IP: <span class="copy-ip" data-ip="194.93.2.226:2145">194.93.2.226:2145</span></p>
+                    <a href="https://t.me/Russia_RPG">ТГК</a>
+                </div>
+                
+                <div class="ad">
+                    <h3>Реклама</h3>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvUgk63eizhRMM1luWK7SLr3qrpeZhkCCeAg&s" alt="Реклама 3" style="max-width: 100%;">
+                    <p><strong>Скачать GTA San Andreas от advance rp(пк версию)</strong></p>
+                    <p>Полная версия бесплатно</p>
+                    <a href="https://files.adv-rp.com/static/resources/sampadvancerp.exe" class="join-btn" style="display: inline-block; margin-top: 10px;">Скачать сейчас</a>
+                </div>
+                
+                <div class="ad">
+                    <h3>Реклама</h3>
+                    <img src="https://play-lh.googleusercontent.com/S9iHZNrsP1od6ggCIGjQHV5Ex2bO20_jcDP-mfo6NtYB2MzAA3ANdQh8OQzp1tUGgfQ" alt="Реклама 3" style="max-width: 100%;">
+                    <p><strong>Скачать GTA San Andreas (android version)</strong></p>
+                    <p>две версии на выбор lite/full</p>
+                    <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://play.google.com/store/apps/details%3Fid%3Dru.unisamp_mobile.launcher%26referrer%3Dutm_source%253Dgoogle%2526utm_medium%253Dorganic%2526utm_term%253Dsamp%2Blauncher%26pcampaignid%3DAPPU_1_5M8XaOW4B96D9u8PyJX6uAc&ved=2ahUKEwjluqq_1YqNAxXegf0HHciKHncQ5YQBegQIDBAC&usg=AOvVaw0nDyUbmD76Eq-R152Q54K2" class="join-btn" style="display: inline-block; margin-top: 10px;">Скачать сейчас</a>
+                </div>
             </div>
         </div>
     </div>
