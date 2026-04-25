@@ -2,299 +2,353 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Лучшие сервера 2025 | SAMP, CRMP, GTA 5 RP</title>
     <link rel="icon" href="IMG_0766.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Trebuchet MS', Arial, sans-serif;
-            background: #f0f0f0;
+        :root {
+            --primary: #8a63f2;
+            --primary-dark: #6d44d9;
+            --secondary: #63f2c8;
+            --accent: #ff7e5f;
+            --dark-bg: #121212;
+            --darker-card: #1e1e1e;
+            --surface: #252525;
+            --text: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --border: rgba(138, 99, 242, 0.25);
+            --header-gradient: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            --nav-bg: #0a0a0a;
+            --glow: 0 0 10px rgba(138, 99, 242, 0.5);
+        }
+        [data-theme="light"] {
+            --dark-bg: #f5f7fa;
+            --darker-card: #ffffff;
+            --surface: #eef2f5;
+            --text: #1e293b;
+            --text-secondary: #475569;
+            --border: rgba(138, 99, 242, 0.4);
+            --header-gradient: linear-gradient(135deg, #8a63f2, #b28eff);
+            --nav-bg: #e2e8f0;
+        }
+        * {
             margin: 0;
             padding: 0;
-            color: #333;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text);
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            line-height: 1.5;
+            transition: background 0.2s, color 0.2s;
+        }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--dark-bg); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+        ::selection { background: var(--primary); color: white; }
+        .theme-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1100;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(8px);
+            border-radius: 60px;
+            padding: 5px;
+            display: flex;
+            gap: 5px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .theme-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.2s;
+            color: white;
+        }
+        .theme-icon.active {
+            background: var(--primary);
+            box-shadow: 0 0 12px var(--primary);
+        }
+        .main-wrapper {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
-        
-        /* Шапка в стиле 2013 */
+        /* Header modern */
         .header {
-            background: linear-gradient(to bottom, #3a7bd5, #00d2ff);
-            padding: 20px 0;
+            background: var(--header-gradient);
+            padding: 3rem 1rem;
             text-align: center;
-            border-bottom: 5px solid #ff6600;
+            border-bottom: 3px solid var(--primary);
+            position: relative;
+            overflow: hidden;
         }
-        
+        .header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(0,0,0,0.1)" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"></path></svg>');
+            background-size: cover;
+            pointer-events: none;
+        }
         .header h1 {
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            font-size: 32px;
-            margin: 0;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #fff, var(--secondary));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
         }
-        
         .header p {
-            color: white;
-            font-size: 16px;
-            margin: 5px 0 0;
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 2;
         }
-        
-        /* Навигационное меню */
+        /* Navbar */
         .nav {
-            background: #333;
-            padding: 10px 0;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 100;
+            border-bottom: 1px solid var(--border);
+            padding: 0.8rem 0;
         }
-        
         .nav ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
             list-style: none;
-            margin: 0;
-            padding: 0;
-            text-align: center;
         }
-        
-        .nav li {
-            display: inline-block;
-            margin: 0 15px;
-        }
-        
         .nav a {
-            color: white;
+            color: var(--text);
             text-decoration: none;
-            font-size: 18px;
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: background 0.3s;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            transition: 0.2s;
         }
-        
         .nav a:hover {
-            background: #ff6600;
-        }
-        
-        /* Основной контейнер */
-        .main-wrapper {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        /* Контейнер контента */
-        .content-wrapper {
-            display: flex;
-            flex: 1;
-            width: 80%;
-            margin: 20px auto;
-        }
-        
-        .main-content {
-            flex: 3;
-            background: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        
-        /* Боковая панель с рекламой */
-        .sidebar {
-            flex: 1;
-            margin-left: 20px;
-            position: sticky;
-            top: 80px;
-            height: fit-content;
-        }
-        
-        .ad {
-            margin-bottom: 20px;
-            background: white;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .ad:hover {
-            transform: translateY(-5px);
-        }
-        
-        .ad h3 {
-            color: #ff6600;
-            margin-top: 0;
-        }
-        
-        .ad img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 35px;
-            margin-bottom: 10px;
-        }
-        
-        /* Мобильная реклама (скрыта на ПК) */
-        .mobile-ad {
-            display: none;
-            width: 100%;
-            text-align: center;
-            margin: 20px 0;
-            border: 1px dashed #ccc;
-            padding: 10px;
-        }
-        
-        /* Стили для серверов */
-        .server {
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .server h2 {
-            color: #3a7bd5;
-            margin-bottom: 10px;
-        }
-        
-        .server-info {
-            background: #f9f9f9;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-        
-        .server-rating {
-            color: #ff6600;
-            font-weight: bold;
-        }
-        
-        .join-btn {
-            display: inline-block;
-            background: #ff6600;
+            background: var(--primary);
             color: white;
-            padding: 8px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-top: 10px;
-            transition: background 0.3s;
+            box-shadow: 0 4px 12px rgba(138,99,242,0.4);
         }
-        
-        .join-btn:hover {
-            background: #e55c00;
-        }
-        
-        /* Стили для копирования текста */
-        .copy-ip {
-            display: inline-flex;
-            align-items: center;
-            background: #f0f0f0;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-family: monospace;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .copy-ip:hover {
-            background: #e0e0e0;
-        }
-        
-        .copy-ip::after {
-            content: "📋";
-            margin-left: 5px;
-            font-size: 14px;
-        }
-        
-        .copy-ip.copied::after {
-            content: "✓";
-            color: green;
-        }
-        
-        /* Футер */
-        .footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: auto;
-        }
-        
-        .footer a {
-            color: white;
-            text-decoration: none;
-        }
-        
-        .footer a:hover {
-            color: yellow;
-        }
-        
-        /* Адаптивность */
-        @media screen and (max-width: 768px) {
-            .content-wrapper {
-                width: 95%;
-                flex-direction: column;
-            }
-            
-            .main-content, .sidebar {
-                width: auto;
-                margin-left: 0;
-            }
-            
-            .sidebar {
-                position: static;
-                margin-top: 20px;
-            }
-            
-            .mobile-ad {
-                display: block;
-            }
-        }
-        
-        /* Дополнительные элементы в стиле 2013 */
-        .counter {
-            text-align: center;
-            margin: 20px 0;
-            color: #666;
-        }
-        
+        /* Бегущая строка */
         .marquee {
-            background: #333;
-            color: white;
-            padding: 10px;
-            margin-bottom: 20px;
+            background: rgba(138, 99, 242, 0.2);
+            padding: 0.7rem;
+            margin: 1.5rem 0;
+            border-radius: 40px;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
             overflow: hidden;
             white-space: nowrap;
-            box-sizing: border-box;
+            border: 1px solid var(--border);
         }
-        
         .marquee span {
             display: inline-block;
             padding-left: 100%;
-            animation: marquee 15s linear infinite;
+            animation: marquee 20s linear infinite;
+            font-weight: 500;
         }
-        
         @keyframes marquee {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-100%, 0); }
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
         }
-        
-        /* Уведомление о копировании */
+        /* Контент */
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        .main-content {
+            flex: 3;
+            min-width: 250px;
+        }
+        .sidebar {
+            flex: 1;
+            min-width: 260px;
+            position: sticky;
+            top: 100px;
+            align-self: start;
+        }
+        /* Карточки серверов */
+        .server {
+            background: var(--darker-card);
+            border-radius: 28px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .server:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -15px rgba(0,0,0,0.4);
+            border-color: var(--primary);
+        }
+        .server h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        .server-info {
+            background: var(--surface);
+            padding: 1rem;
+            border-radius: 20px;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+        .server-info p {
+            margin: 0.5rem 0;
+        }
+        .server-rating {
+            color: #ffb347;
+            font-weight: bold;
+        }
+        .join-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--primary), #a07aff);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+            margin-top: 0.5rem;
+        }
+        .join-btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.05);
+            box-shadow: 0 6px 14px rgba(138,99,242,0.4);
+        }
+        /* Рекламные блоки */
+        .ad {
+            background: var(--darker-card);
+            border-radius: 24px;
+            padding: 1.2rem;
+            margin-bottom: 1.8rem;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+        .ad h3 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+        .ad img {
+            max-width: 100%;
+            border-radius: 16px;
+            margin-bottom: 12px;
+        }
+        .mobile-ad {
+            display: none;
+        }
+        /* Уведомление копирования */
+        .copy-ip {
+            background: rgba(138,99,242,0.15);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-family: monospace;
+            cursor: pointer;
+            transition: 0.1s;
+            display: inline-block;
+        }
+        .copy-ip:hover {
+            background: var(--primary);
+            color: white;
+        }
+        .copy-ip::after {
+            content: " 📋";
+            font-size: 12px;
+        }
+        .copy-ip.copied::after {
+            content: " ✓";
+        }
         .copy-notification {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: rgba(0,0,0,0.7);
+            background: var(--primary);
             color: white;
-            padding: 10px 15px;
-            border-radius: 5px;
-            z-index: 1000;
+            padding: 10px 18px;
+            border-radius: 40px;
+            z-index: 2000;
             display: none;
+            font-weight: 500;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        }
+        /* Footer */
+        .footer {
+            background: var(--nav-bg);
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+            border-top: 1px solid var(--border);
+        }
+        .footer p {
+            margin: 0.3rem 0;
+            font-size: 0.9rem;
+        }
+        .footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        /* Адаптив */
+        @media screen and (max-width: 860px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+            .sidebar {
+                position: static;
+                margin-top: 0;
+            }
+            .mobile-ad {
+                display: block;
+                margin-bottom: 1.5rem;
+            }
+        }
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.8rem; }
+            .nav ul { gap: 0.5rem; }
+            .nav a { padding: 0.3rem 0.8rem; font-size: 0.85rem; }
+            .server h2 { font-size: 1.4rem; }
+            .theme-switcher { top: 10px; right: 10px; }
         }
     </style>
 </head>
-<body>
+<body data-theme="dark">
+    <div class="theme-switcher" id="themeSwitcher">
+        <div class="theme-icon active" data-theme="dark">🌙</div>
+        <div class="theme-icon" data-theme="light">☀️</div>
+    </div>
+
     <div class="main-wrapper">
         <div class="header">
             <h1>Лучшие RP сервера 2025</h1>
             <p>Топовые проекты SAMP, CRMP, GTA 5 Role Play</p>
         </div>
-        
+
         <div class="nav">
             <ul>
                 <li><a href="#samp">SAMP</a></li>
@@ -305,11 +359,11 @@
                 <li><a href="#advance">Advance</a></li>
             </ul>
         </div>
-        
+
         <div class="marquee">
-            <span>🔥РЕКЛАМА НА ЗАКАЗ <a href="https://t.me/Kirill_Florik" style="color: #ff6600; text-decoration: none;">Kirill</a>🔥</span>
+            <span>🔥РЕКЛАМА НА ЗАКАЗ <a href="https://t.me/Kirill_Florik" style="color: #ff7e5f; text-decoration: none;">Kirill</a>🔥</span>
         </div>
-        
+
         <div class="content-wrapper">
             <div class="main-content">
                 <div class="mobile-ad">
@@ -317,7 +371,7 @@
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvp_kx-rK66IQawGHR6jtIEvUJTpuZ1EPmVw&s" alt="Мобильная реклама" style="max-width: 100%;">
                     <p>Заходи на сервер в samp и получи 50кк при регистрации <br> и 5к доната админка и лидерка без обзвона и бесплатно <br> стань лидером своей любимой организации <br> IP: <span class="copy-ip" data-ip="194.93.2.226:2145">194.93.2.226:2145</span></p>
                 </div>
-                
+
                 <div id="samp" class="server">
                     <h2>San Andreas Multiplayer (SAMP)</h2>
                     <div class="server-info">
@@ -326,9 +380,9 @@
                         <p><strong>Рейтинг:</strong> <span class="server-rating">★★★★★</span> (4.9/5)</p>
                         <p>Лучший RP сервер в SAMP с уникальной экономикой и системой фракций. Более 1000 машин и 500 домов.</p>
                     </div>
-                    <a href="samp://samp.bestserver.com:7777" class="join-btn">Подключиться</a>
+                    <a href="samp://samp.bestserver.com:7777" class="join-btn"><i class="fas fa-plug"></i> Подключиться</a>
                 </div>
-                
+
                 <div id="arizona" class="server">
                     <h2>Arizona RP</h2>
                     <div class="server-info">
@@ -337,9 +391,9 @@
                         <p><strong>Рейтинг:</strong> <span class="server-rating">★★★★☆</span> (4.7/5)</p>
                         <p>Уникальный криминальный RP сервер с системой наркоторговли и бандитскими разборками.</p>
                     </div>
-                    <a href="https://arizona-rp.com/#how-to-play" class="join-btn">Скачать клиент</a>
+                    <a href="https://arizona-rp.com/#how-to-play" class="join-btn"><i class="fas fa-download"></i> Скачать клиент</a>
                 </div>
-                
+
                 <div id="rodina" class="server">
                     <h2>Родина RP</h2>
                     <div class="server-info">
@@ -348,20 +402,20 @@
                         <p><strong>Рейтинг:</strong> <span class="server-rating">★★★★★</span> (4.8/5)</p>
                         <p>Русскоязычный RP сервер с реалистичной экономикой и политической системой.</p>
                     </div>
-                    <a href="https://rodina-rp.com/#launcher" class="join-btn">Скачать</a>
+                    <a href="https://rodina-rp.com/#launcher" class="join-btn"><i class="fas fa-download"></i> Скачать</a>
                 </div>
-                
+
                 <div id="gta5" class="server">
                     <h2>GTA 5 Role Play</h2>
                     <div class="server-info">
-                        <p><strong>IP:</strong> <span class="copy-ip" data-ip="gtarp-best.com">gtarp-best.com</span></p>
-                        <p><strong>Онлайн:</strong> 200+ игроков</p>
+                        <p><strong></strong> <span class="copy-ip" data-ip="ALTA">ALTA</span></p>
+                        <p><strong>Онлайн:</strong> 900+ игроков</p>
                         <p><strong>Рейтинг:</strong> <span class="server-rating">★★★★☆</span> (4.6/5)</p>
                         <p>Самый популярный RP сервер в GTA 5 с модами и кастомными возможностями.</p>
                     </div>
-                    <a href="https://gta5rp.com/download" class="join-btn">Скачать</a>
+                    <a href="https://gta5rp.com/download" class="join-btn"><i class="fas fa-download"></i> Скачать</a>
                 </div>
-                
+
                 <div id="gtao" class="server">
                     <h2>GTA Online</h2>
                     <div class="server-info">
@@ -370,9 +424,9 @@
                         <p><strong>Рейтинг:</strong> <span class="server-rating">★★★★★</span> (5.0/5)</p>
                         <p>Официальный мультиплеер GTA 5 с возможностью создания собственного криминального бизнеса.</p>
                     </div>
-                    <a href="https://www.rockstargames.com/ru/gta-online" class="join-btn">Скачать</a>
+                    <a href="https://www.rockstargames.com/ru/gta-online" class="join-btn"><i class="fas fa-download"></i> Скачать</a>
                 </div>
-                
+
                 <div id="advance" class="server">
                     <h2>Advance rp</h2>
                     <div class="server-info">
@@ -381,33 +435,25 @@
                         <p><strong>Рейтинг:</strong> <span class="server-rating">★★★★☆</span> (4.3/5)</p>
                         <p>Старый самп на котором рп не сохронилось, но можно вспомнить старый самп.</p>
                     </div>
-                    <a href="https://forum.adv-rp.com/sampinstall/arp-launcher.exe" class="join-btn">Скачать</a>
+                    <a href="https://forum.adv-rp.com/sampinstall/arp-launcher.exe" class="join-btn"><i class="fas fa-download"></i> Скачать</a>
                 </div>
             </div>
-            
+
             <div class="sidebar">
                 <div class="ad">
                     <h3>Реклама</h3>
                     <img src="./photon.png" alt="Реклама 1" style="max-width: 100%;">
                     <p><strong>Уникальные читы для Black Russia</strong></p>
                     <p>Без вирусов и троянов</p>
-                    <p><a href="https://t.me/Photon_br" style="color: #3a7bd5; text-decoration: none;">Telegram канал</a></p>
+                    <p><a href="https://t.me/Photon_br" style="color: var(--primary); text-decoration: none;">Telegram канал</a></p>
                 </div>
-                
+
                 <div class="ad">
                     <h3>Реклама</h3>
                     <img src="https://i.pinimg.com/236x/b1/5e/15/b15e152bbcecd5464e76c2eb6c99dec6.jpg?nii=t" alt="Реклама 2" style="max-width: 100%;">
-                    <!--<p><strong>Эксклюзивный SAMP сервер</strong></p>
-                    <p>При регистрации получи:</p>
-                    <ul style="text-align: left; padding-left: 20px;">
-                        <li>50,000,000$ стартового капитала</li>
-                        <li>Админка 5 лвл(свободных мест 6)</li>
-                        <li>Возможность стать лидером организации</li>
-                    </ul>
-                    <p>IP: <span class="copy-ip" data-ip="194.93.2.226:2145">194.93.2.226:2145</span></p>
-                    <a href="https://t.me/Russia_RPG">ТГК</a>-->
+                    <!-- содержимое удалено, но картинка осталась -->
                 </div>
-                
+
                 <div class="ad">
                     <h3>Реклама</h3>
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvUgk63eizhRMM1luWK7SLr3qrpeZhkCCeAg&s" alt="Реклама 3" style="max-width: 100%;">
@@ -415,7 +461,7 @@
                     <p>Полная версия бесплатно</p>
                     <a href="https://files.adv-rp.com/static/resources/sampadvancerp.exe" class="join-btn" style="display: inline-block; margin-top: 10px;">Скачать сейчас</a>
                 </div>
-                
+
                 <div class="ad">
                     <h3>Реклама</h3>
                     <img src="https://play-lh.googleusercontent.com/S9iHZNrsP1od6ggCIGjQHV5Ex2bO20_jcDP-mfo6NtYB2MzAA3ANdQh8OQzp1tUGgfQ" alt="Реклама 3" style="max-width: 100%;">
@@ -426,67 +472,88 @@
             </div>
         </div>
     </div>
-    
+
     <div class="footer">
-        <p>© 2025 <a href="https://kirill-fe.github.io/projects">florik-projects</a></p>
+        <p>© 2025-<span id="currentYear"></span> Разработано <a href="https://kirill-fe.github.io/projects/" target="_blank">florik-projects</a></p>
         <p>Сайт сделан для выбора самп игры</p>
     </div>
-    
-    <!-- Уведомление о копировании -->
+
     <div class="copy-notification" id="copyNotification">
         IP скопирован в буфер обмена!
     </div>
-    
+
     <script>
-        // Скрипт для счетчика посещений
+        // Счётчик посещений (localStorage)
         if(localStorage.pagecount) {
             localStorage.pagecount = Number(localStorage.pagecount) + 1;
         } else {
             localStorage.pagecount = 1;
         }
-        
-        // Рандомный онлайн серверов
+
+        // Рандомный онлайн (оставляем как было)
         function updateOnline() {
-            const onlineElements = document.querySelectorAll('.server-info');
-            onlineElements.forEach(el => {
-                const onlineText = el.querySelector('strong:contains("Онлайн:")');
-                if (onlineText) {
-                    const baseOnline = parseInt(onlineText.nextSibling.textContent);
-                    const randomChange = Math.floor(Math.random() * 20) - 10;
-                    onlineText.nextSibling.textContent = ' ' + Math.max(50, baseOnline + randomChange) + '+ игроков';
+            const serverInfos = document.querySelectorAll('.server-info');
+            serverInfos.forEach(el => {
+                const strongs = el.querySelectorAll('strong');
+                for(let s of strongs) {
+                    if(s.innerText.includes('Онлайн:')) {
+                        let parent = s.parentNode;
+                        let textNode = parent.childNodes[1];
+                        if(textNode && textNode.nodeType === Node.TEXT_NODE) {
+                            let current = parseInt(textNode.textContent.match(/\d+/)?.[0]) || 500;
+                            let change = Math.floor(Math.random() * 20) - 10;
+                            let newVal = Math.max(50, current + change);
+                            textNode.textContent = ` ${newVal}+ игроков`;
+                        }
+                        break;
+                    }
                 }
             });
         }
-        
         setInterval(updateOnline, 5000);
-        
-        // Функция копирования IP
-        document.querySelectorAll('.copy-ip').forEach(element => {
-            element.addEventListener('click', async function() {
+
+        // Копирование IP
+        document.querySelectorAll('.copy-ip').forEach(el => {
+            el.addEventListener('click', async function(e) {
+                e.preventDefault();
                 const ip = this.getAttribute('data-ip');
-                
-                try {
-                    await navigator.clipboard.writeText(ip);
-                    
-                    // Показываем уведомление
-                    const notification = document.getElementById('copyNotification');
-                    notification.style.display = 'block';
-                    setTimeout(() => {
-                        notification.style.display = 'none';
-                    }, 2000);
-                    
-                    // Меняем иконку на "галочку"
-                    this.classList.add('copied');
-                    setTimeout(() => {
-                        this.classList.remove('copied');
-                    }, 2000);
-                    
-                } catch (err) {
-                    console.error('Ошибка при копировании: ', err);
-                    alert('Не удалось скопировать IP. Попробуйте вручную.');
+                if(ip) {
+                    try {
+                        await navigator.clipboard.writeText(ip);
+                        const notify = document.getElementById('copyNotification');
+                        notify.style.display = 'block';
+                        setTimeout(() => notify.style.display = 'none', 2000);
+                        this.classList.add('copied');
+                        setTimeout(() => this.classList.remove('copied'), 2000);
+                    } catch(err) {
+                        alert('Не удалось скопировать IP');
+                    }
                 }
             });
         });
+
+        // Переключение темы
+        const themeSwitcher = document.getElementById('themeSwitcher');
+        const themeIcons = document.querySelectorAll('.theme-icon');
+        const body = document.body;
+        function setTheme(theme) {
+            body.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            themeIcons.forEach(icon => {
+                if(icon.getAttribute('data-theme') === theme) icon.classList.add('active');
+                else icon.classList.remove('active');
+            });
+        }
+        themeIcons.forEach(icon => {
+            icon.addEventListener('click', () => {
+                setTheme(icon.getAttribute('data-theme'));
+            });
+        });
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        setTheme(savedTheme);
+
+        // Установка текущего года в футере
+        document.getElementById('currentYear').innerText = new Date().getFullYear();
     </script>
 </body>
 </html>
